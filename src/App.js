@@ -16,7 +16,8 @@ class App extends React.Component {
       minutes: 0,
       seconds: 0,
       running: false,
-      intervalId: ""
+      intervalId: "",
+      alarmColor: { color: 'black' },
     };
   }
   componentDidMount() {
@@ -41,6 +42,7 @@ class App extends React.Component {
       timerLabel: SESSION,
       minutes: 25,
       seconds: 0,
+      alarmColor: { color: 'black' }
     })
     this.audioBeep.pause();
     this.audioBeep.currentTime = 0;
@@ -113,8 +115,7 @@ class App extends React.Component {
         return {
           intervalId: intervalId,
           running: true,
-          // minutes:0,
-          // seconds:5
+          alarmColor: { color: 'black' },
         }
       })
     }
@@ -137,6 +138,12 @@ class App extends React.Component {
     }
   }
   countDown() {
+    //handle style for 1 min left
+    if (this.state.minutes === 1 && this.state.seconds === 1) {
+      this.setState({
+        alarmColor: { color: 'red' },
+      })
+    }
     //play sound, start at 00:01
     if (this.state.minutes === 0 && this.state.seconds === 1) {
       this.playSound()
@@ -199,7 +206,7 @@ class App extends React.Component {
               </div>
             </div>
           </div>
-          <div className="session">
+          <div className="session" style={this.state.alarmColor}>
             <div id="timer-label">{this.state.timerLabel}</div>
             <div id="time-left">{this.convertToTimeFormat(this.state.minutes, this.state.seconds)}</div>
           </div>
