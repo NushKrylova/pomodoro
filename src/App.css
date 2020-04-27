@@ -1,0 +1,62 @@
+:root {
+  --blue-color: #bfdee0;
+  --purple-color: #9D89A2;
+  --purple-dark-color: #856c8b; 
+  --purple-super-dark-color: #5D4B61;
+  --green-color: #bbdfb5;
+  --yellow-color: #ffeb99;
+}
+#pomodoro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  background-color:   var(--green-color);
+}
+.title{
+  font-size: 50px;
+}
+.container{
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.length{
+  display: flex;
+  flex-direction: row;
+}
+.length-block{
+  margin: 20px;
+}
+.text{
+  text-align: center;
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.arrow-button{
+  border: none;
+  background-color:   var(--green-color);
+}
+.session{
+  border: 7px solid #13353a;
+  border-radius: 50px;
+  width: 270px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#time-left{
+  font-family: Digital;
+  font-size: 80px;
+}
+.buttons.control-buttons{
+  margin: 20px;
+}
